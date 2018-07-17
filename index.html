@@ -7,13 +7,21 @@
 </head>
 <body>
 
-	<div id="word"></div>
+	<div id="container">
 
-	<div>
+		<!-- Random Word Display -->
+		<div id="word" class="random-word">Random Word</div>
 
-		<input id="guess" type="text" placeholder="Your guess">
+		<!-- Player Guess Area -->
+		<div class="guess-box">
+			<!-- Guess Letter Input & 'Submit' -->
+			<input id="guess-letter" type="text" placeholder="Your guess">
+			<button id="guess-btn">Guess</button>
 
-		<button id="guess-btn">Guess</button>
+		</div>
+		
+		<!-- Attempts Left -->
+		<div id="attempts" class="attempts-left">Your attemtps left</div>
 
 	</div>
 
