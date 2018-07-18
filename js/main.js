@@ -1,16 +1,10 @@
-let turnsLeft = 10
-let turnsTaken = 2 // hard coded for testing
-let underscore = ''
 
 
+let turnsLeft = 10 // counter to keep track of turns left
+let turnsTaken = 2 // turns player has taken will be stored here.
+let underscore = '' // used to place underscore on page
 
-
-// Generete random word to guess
-let randomNumber = commonWords[Math.floor(Math.random() * (commonWords.length))]
-
-
-
-// Calculate how many turns are left
+// Turns left
 let attempts = function() {
 	if (turnsTaken > 0) {
 		turnsLeft = turnsLeft - turnsTaken
@@ -20,8 +14,15 @@ let attempts = function() {
 
 
 
-for (let i = 0; i < randomNumber.length; i++) {
-	underscore += '_ '
+// Generete random word for player to guess
+let randomWord = commonWords[ Math.floor(Math.random() * (commonWords.length)) ]
+
+
+// Place underscore on the page
+let underscoreToPage = function() {
+	for (let i = 0; i < randomWord.length; i++) {
+		underscore += '_ '
+	}
 }
 
 
@@ -30,8 +31,10 @@ for (let i = 0; i < randomNumber.length; i++) {
 
 // Display the random word with underscores
 let displayWord = document.getElementById('word')
-displayWord.innerHTML = underscore 
+displayWord.innerHTML = underscoreToPage()
 
-
+// Display number of turns left to the screen
 let displayAttempts = document.getElementById('attempts')
 displayAttempts.innerHTML = `you have ${attempts()} attempts left.`
+
+
