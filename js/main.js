@@ -66,7 +66,6 @@ displayAttempts.innerHTML = `you have ${attempts()} attempts left.`
 let randomWord = commonWords[Math.floor(Math.random() * commonWords.length)]
 var playerGuess = document.querySelector("#player-guess")
 var maxTurns      = 10
-var turnsTaken    = 0
 var currentIndex  = word
 var guessedLetters= []
 var hasFinished   = false
@@ -90,22 +89,14 @@ document.querySelector('#guess-btn').addEventListener("click", function() {
 			splitWord[i] = playerGuess.value
 			underscores = splitWord.join('')
 
-		} else if (playerGuess.value != randomWord.charAt(i)) {
-			
-			turnsTaken++
-
-			if (turnsTaken > 0) {
-				maxTurns = maxTurns - turnsTaken
-			}
 		}
-
 	}
-
-	
 
 	document.querySelector('#player-guess').value = ''
 	document.querySelector('#player-guess').focus()
 	document.querySelector('#correct').innerHTML = underscores
+
+	
 })
 
 // Keep tracks of turns left
@@ -118,4 +109,4 @@ document.querySelector('#guess-btn').addEventListener("click", function() {
 // }
 
 document.querySelector('#correct').innerHTML = underscores
-document.querySelector('#turns-remaining').innerHTML = maxTurns + " turns remaining"
+	// document.querySelector('#turns-remaining').innerHTML = maxTurns + " turns remaining"
